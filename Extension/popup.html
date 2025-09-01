@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Detector</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Image Detector</h1>
+            <p>Detect AI-generated images on the web</p>
+        </header>
+        
+        <div class="controls">
+            <button id="scanPage" class="btn primary">
+                <span class="icon">🔍</span>
+                Scan Current Page
+            </button>
+            <button id="scanImage" class="btn secondary">
+                <span class="icon">📷</span>
+                Scan Uploaded Image
+            </button>
+        </div>
+
+        <div class="upload-area" id="uploadArea" style="display: none;">
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            <div class="upload-box" id="uploadBox">
+                <span class="icon">📁</span>
+                <p>Click to upload image or drag & drop</p>
+            </div>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h3>Detection Results</h3>
+            <div class="result-item">
+                <div class="confidence-bar">
+                    <div class="bar-fill" id="confidenceBar"></div>
+                </div>
+                <div class="confidence-text">
+                    <span id="confidenceText">0%</span> confidence
+                </div>
+            </div>
+            <div class="verdict" id="verdict">
+                <span class="icon" id="verdictIcon">❓</span>
+                <span id="verdictText">Analyzing...</span>
+            </div>
+        </div>
+
+        <div class="settings">
+            <h3>Settings</h3>
+            <div class="setting-item">
+                <label for="autoScan">Auto-scan on page load</label>
+                <input type="checkbox" id="autoScan">
+            </div>
+            <div class="setting-item">
+                <label for="confidenceThreshold">Confidence threshold</label>
+                <input type="range" id="confidenceThreshold" min="0" max="100" value="70">
+                <span id="thresholdValue">70%</span>
+            </div>
+        </div>
+
+        <div class="status" id="status">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <span id="statusText">Ready</span>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
